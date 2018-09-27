@@ -10,10 +10,12 @@ add_static_to_angular_dist_files(OS_PATH_DIR_NAME)
 
 
 #  todo dodac enkoding utf-8
+#  todo swaggera sprobowac dodac jak sie da
 
 @app.route('/')
 def hello_world():
     return send_from_directory('static', 'index.html')
+
 
 @app.route('/api/test')
 def test():
