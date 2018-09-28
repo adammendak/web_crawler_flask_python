@@ -6,11 +6,10 @@ OS_PATH_DIR_NAME = str(os.path.join(os.path.dirname(__file__), "static/index.htm
 
 app = Flask(__name__, static_url_path='/static')
 
-add_static_to_angular_dist_files(OS_PATH_DIR_NAME)
-
-
 #  todo dodac enkoding utf-8
 #  todo swaggera sprobowac dodac jak sie da
+#  todo dodac postgresa na razie na sqlite zrobic
+
 
 @app.route('/')
 def hello_world():
@@ -23,4 +22,7 @@ def test():
 
 
 if __name__ == '__main__':
+    from db import db
+    db.init_app(app)
+    add_static_to_angular_dist_files(OS_PATH_DIR_NAME)
     app.run()
