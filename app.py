@@ -14,6 +14,7 @@ db.init_app(app)
 
 #  todo swaggera sprobowac dodac jak sie da
 #  todo dodac postgresa na razie na sqlite zrobic
+#  todo dodac wczytywanie url do bazy danych ze zmiennej srodowiskowej
 
 
 @app.before_first_request
