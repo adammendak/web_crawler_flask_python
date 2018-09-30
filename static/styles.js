@@ -48,7 +48,7 @@ module.exports = "/*!\n * Bootstrap v4.1.3 (https://getbootstrap.com/)\n * Copyr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body{\r\n  background-image: url('92abc403.png');\r\n  background-position: center;\r\n  background-attachment: fixed;\r\n}\r\n\r\n.formAll{\r\n  display: -ms-grid;\r\n  display: grid;\r\n  justify-content: center;\r\n  padding: 50px;\r\n  margin: 0 auto;\r\n\r\n}\r\n\r\n"
+module.exports = ".formAll{\r\n  display: -ms-grid;\r\n  display: grid;\r\n  justify-content: center;\r\n  padding: 50px;\r\n  margin: 0 auto;\r\n\r\n}\r\n\r\n"
 
 /***/ }),
 

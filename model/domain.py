@@ -1,5 +1,7 @@
 from db import db
+from sqlalchemy.orm import relationship
 from datetime import datetime
+from model.single_element import SingleElement
 
 
 class Domain(db.Model):
@@ -10,10 +12,11 @@ class Domain(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     """ tylko jeden wpis w bazie na dana domene"""
-    name = db.Column(db.String(255), unique=True)
+    name = db.Column(db.String(2000), unique=True)
     count = db.Column(db.Integer)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
+    elements = relationship("SingleElement", cascade="all,delete")
 
     def __init__(self, name):
         self.name = name
@@ -26,8 +29,13 @@ class Domain(db.Model):
         self.updated_at = datetime.now()
 
     def json(self):
+        elements_list = []
+        for element in self.elements:
+            elements_list.append(SingleElement.json(element))
+
         return {'name': self.name, 'count': self.count,
-                'created_at': str(self.created_at), 'updated_at': str(self.updated_at)}
+                'created_at': str(self.created_at), 'updated_at': str(self.updated_at),
+                'elements': elements_list}
 
     @staticmethod
     def save_domain(domain):

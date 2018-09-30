@@ -23,7 +23,7 @@ class DomainWithElements(Resource):
         else:
             domain = Domain(data['domain'])
 
-        TextExtractor.extract(data['domain'])
+        TextExtractor.extract(data['domain'], domain)
         Domain.save_domain(domain)
 
         return domain.json()

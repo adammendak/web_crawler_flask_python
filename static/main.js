@@ -156,7 +156,7 @@ module.exports = ".label{\r\n  text-align: center;\r\n\r\n}\r\n\r\nh1{\r\n  font
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"formAll\">\n  <h1>web crawler</h1>\n  <div class=\"form\" style=\"display: inline-grid;\">\n    <label class=\"label\" for=\"topic\">Input URL</label>\n\n    <input placeholder=\"pase URL\" class=\"form-control form-control-lg\" type=\"text\" id=\"topic\" name=\"topic\" required #url>\n\n    <button class=\"btn btn-primary\" type=\"submit\" (click)=\"addUrl(url.value)\" url.value=\"\" >Submit</button>\n\n  </div>\n  <ul class=\"result\" class=\"list-group-item list-group-item-light\">\n    <li>{{name}}</li>\n    <li>{{count}}</li>\n    <li>{{created_at}}</li>\n    <li>{{updated_at}}</li>\n  </ul>\n</form>\n\n"
+module.exports = "<form class=\"formAll\">\n  <h1>web crawler</h1>\n  <div class=\"form\" style=\"display: inline-grid;\">\n    <label class=\"label\" for=\"topic\">Input URL</label>\n\n    <input placeholder=\"\" class=\"form-control form-control-lg\" type=\"text\" id=\"topic\" name=\"topic\" required #url>\n\n    <button class=\"btn btn-primary\" type=\"submit\" (click)=\"addUrl(url.value)\" url.value=\"\" >Submit</button>\n\n  </div>\n  <ul class=\"result\" class=\"list-group-item list-group-item-light\">\n    <li>nazwa domeny: {{name}}</li>\n    <li>ilosc scrapow: {{count}}</li>\n    <li>pierwszy: {{created_at}}</li>\n    <li>ostatni: {{updated_at}}</li>\n    <ul class=\"align-content-center\"> <h3 class=\"text-center mb-3\">Elementy strony:</h3>\n      <table class=\"table table-hover table-bordered\">\n        <tr>\n          <th>type</th>\n          <th>text</th>\n          <th>img</th>\n        </tr>\n        <tr *ngFor=\"let element of listOfElements\">\n          <td class=\"text-center\">{{element.type}}</td>\n          <td class=\"text-center\">{{element.text}}</td>\n          <td class=\"text-center\">{{element.img_src}}</td>\n        </tr>\n      </table>\n      <!--<li *ngFor=\"let element of listOfElements\">-->\n\n        <!--{{element.type}}-->\n        <!--{{element.text}}-->\n        <!--{{element.img_src}}-->\n      <!--</li>-->\n  </ul>\n  </ul>\n</form>\n\n"
 
 /***/ }),
 
@@ -184,21 +184,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var FormTemplateComponent = /** @class */ (function () {
-    function FormTemplateComponent(myhttpService) {
-        this.myhttpService = myhttpService;
+    function FormTemplateComponent(httpService) {
+        this.httpService = httpService;
         this.count = '';
         this.name = '';
         this.created_at = '';
         this.updated_at = '';
+        this.listOfElements = [];
     }
     FormTemplateComponent.prototype.addUrl = function (url) {
         var _this = this;
-        this.myhttpService.addUrl(url).subscribe(function (response) {
+        this.httpService.addUrl(url).subscribe(function (response) {
             console.log(response);
             _this.count = response.count;
             _this.name = response.name;
             _this.updated_at = response.updated_at;
             _this.created_at = response.created_at;
+            _this.listOfElements = response.elements;
+            console.log(_this.listOfElements);
         });
     };
     FormTemplateComponent = __decorate([
@@ -240,7 +243,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var HttpService = /** @class */ (function () {
-    // readonly param: HttpParams;
     function HttpService(http) {
         this.http = http;
         this.URL = 'http://crawler.adammendak.pl/domain';

@@ -15,18 +15,11 @@ api = Api(app)
 db.init_app(app)
 CORS(app)  # do developmentu z angulara
 
-#  todo dodac "http://python.beispiel.programmierenlernen.io/index.php" jako przykladowa strona do crawlowania
-#  todo podmienic na stronie requests
-#  todo dodac na stronie glownej informacje o tym zeby moja strone wyekstraktowac
-#  todo sprawdzic jak robic enumy pod single element type
-#  todo wczytywac db url ze zmiennch srodowiskowych
-#  todo wyczyscic komentarze z fronta
-#  todo dodac beautiful soup na serwerze zainstalowac pipem
-#  todo we froncie dac content-type:application/json
-#  todo swaggera sprobowac dodac jak sie da
-#  todo dodac postgresa na razie na sqlite zrobic
-#  todo dodac wczytywanie url do bazy danych ze zmiennej srodowiskowej
 
+#  todo zmienic w single element na enuma
+#  todo wczytywac db url ze zmiennch srodowiskowych
+#  todo swaggera sprobowac dodac
+#  todo dodac postgresa url na razie na sqlite
 
 @app.before_first_request
 def create_tables():
