@@ -1,0 +1,13 @@
+<form class="formAll">
+  <h1>web crawler</h1>
+  <div class="form" style="display: inline-grid;">
+    <label class="label" for="topic">Input URL</label>
+
+    <input placeholder="pase URL" class="form-control form-control-lg" type="text" id="topic" name="topic" required #url>
+
+    <button class="btn btn-primary" type="submit" (click)="addUrl(url.value)" url.value="" >Submit</button>
+
+  </div>
+  <p class="result">result</p>
+</form>
+

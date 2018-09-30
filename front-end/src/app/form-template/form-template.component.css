@@ -1,0 +1,50 @@
+.label{
+  text-align: center;
+
+}
+
+.arrow{
+  width: 25px;
+  height: 35px;
+  margin: 0 auto;
+}
+
+h1{
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: blue;
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  border: 1px solid blue;
+  border-radius: 10px;
+  transition: opacity 0.2s ease-out;
+  text-shadow: -2px -1px 5px rgba(150, 150, 150, 1);
+}
+
+h1:hover {
+  opacity: 0.6;
+}
+
+.form{
+  font-size: 1.7rem;
+  color: blue;
+  font-weight: bold;
+}
+
+.result{
+  font-size: 1.7rem;
+  color: #2426AB;
+
+}
+
+input{
+  margin-bottom: 20px;
+}
+
+p{
+  text-align: center;
+}
+

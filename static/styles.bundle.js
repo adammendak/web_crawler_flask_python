@@ -42,7 +42,7 @@ module.exports = "/*!\n * Bootstrap v4.1.3 (https://getbootstrap.com/)\n * Copyr
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "body{\r\n  background-image: url('92abc403.3b895166337bd887da54.png');\r\n  background-position: center;\r\n  background-attachment: fixed;\r\n}\r\n\r\n.formAll{\r\n  display: -ms-grid;\r\n  display: grid;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding: 50px;\r\n  margin: 0 auto;\r\n\r\n}\r\n\r\n"
 
 /***/ }),
 

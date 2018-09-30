@@ -15,8 +15,5 @@ def add_static_to_angular_dist_files(dir_name):
         if "static" not in script['src']:
             script['src'] = "static/" + script['src']
 
-    if "static" not in soup.find_all('link')[1].attrs['href']:
-        soup.find_all('link')[1].attrs['href'] = "static/" + str(soup.find_all('link')[1].attrs['href'])
-
     with open(dir_name, "w") as file:
         file.write(str(soup))

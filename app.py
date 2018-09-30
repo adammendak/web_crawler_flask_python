@@ -15,6 +15,7 @@ api = Api(app)
 db.init_app(app)
 CORS(app)
 
+#  todo wyczyscic komentarze z fronta
 #  todo dodac beautiful soup na serwerze zainstalowac pipem
 #  todo we froncie dac content-type:application/json
 #  todo swaggera sprobowac dodac jak sie da
