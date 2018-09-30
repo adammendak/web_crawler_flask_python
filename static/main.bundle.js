@@ -117,7 +117,7 @@ var AppModule = (function () {
 /***/ "./src/app/form-template/form-template.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".label{\r\n  text-align: center;\r\n\r\n}\r\n\r\n.arrow{\r\n  width: 25px;\r\n  height: 35px;\r\n  margin: 0 auto;\r\n}\r\n\r\nh1{\r\n  font-size: 3rem;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  color: blue;\r\n  font-weight: bold;\r\n  padding: 15px;\r\n  margin-top: 10px;\r\n  margin-bottom: 100px;\r\n  border: 1px solid blue;\r\n  border-radius: 10px;\r\n  -webkit-transition: opacity 0.2s ease-out;\r\n  transition: opacity 0.2s ease-out;\r\n  text-shadow: -2px -1px 5px rgba(150, 150, 150, 1);\r\n}\r\n\r\nh1:hover {\r\n  opacity: 0.6;\r\n}\r\n\r\n.form{\r\n  font-size: 1.7rem;\r\n  color: blue;\r\n  font-weight: bold;\r\n}\r\n\r\n.result{\r\n  font-size: 1.7rem;\r\n  color: #2426AB;\r\n\r\n}\r\n\r\ninput{\r\n  margin-bottom: 20px;\r\n}\r\n\r\np{\r\n  text-align: center;\r\n}\r\n\r\n"
+module.exports = ".label{\r\n  text-align: center;\r\n\r\n}\r\n\r\nh1{\r\n  font-size: 3rem;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  color: blue;\r\n  font-weight: bold;\r\n  padding: 15px;\r\n  margin-top: 10px;\r\n  margin-bottom: 100px;\r\n  border: 1px solid blue;\r\n  border-radius: 10px;\r\n  -webkit-transition: opacity 0.2s ease-out;\r\n  transition: opacity 0.2s ease-out;\r\n  text-shadow: -2px -1px 5px rgba(150, 150, 150, 1);\r\n}\r\n\r\nh1:hover {\r\n  opacity: 0.6;\r\n}\r\n\r\n.form{\r\n  font-size: 1.7rem;\r\n  color: blue;\r\n  font-weight: bold;\r\n}\r\n\r\n.result{\r\n  font-size: 1.7rem;\r\n  color: #2426AB;\r\n\r\n}\r\n\r\ninput{\r\n  margin-bottom: 20px;\r\n}\r\n\r\np{\r\n  text-align: center;\r\n}\r\n\r\n"
 
 /***/ }),
 
