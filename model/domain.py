@@ -1,8 +1,8 @@
-from model import abstract_timestampable_entity
 from db import db
+from datetime import datetime
 
 
-class Domain(db.Model, abstract_timestampable_entity):
+class Domain(db.Model):
     """
     encja opisująca stronę internetową
     """
@@ -15,16 +15,17 @@ class Domain(db.Model, abstract_timestampable_entity):
     updated_at = db.Column(db.DateTime)
 
     def __init__(self, name):
-        super().__init__()
         self.name = name
         self.count = 0  # ile razy crawler pobierał dane z tej strony
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def increment_count(self):
         self.count = self.count + 1
 
     def json(self):
         return {'id': self.id, 'name': self.name, 'count': self.count,
-                'created_at': self.created_at, 'updated_at': self.updated_at}
+                'created_at': str(self.created_at), 'updated_at': str(self.updated_at)}
 
     @staticmethod
     def save_domain(self, domain):
