@@ -9,7 +9,7 @@ class Domain(db.Model):
     __tablename__ = 'domain'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), unique=True)
+    name = db.Column(db.String(255))
     count = db.Column(db.Integer)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
@@ -28,11 +28,11 @@ class Domain(db.Model):
                 'created_at': str(self.created_at), 'updated_at': str(self.updated_at)}
 
     @staticmethod
-    def save_domain(self, domain):
+    def save_domain(domain):
         db.session.add(domain)
         db.session.commit()
 
     @staticmethod
-    def find_by_name(self, name):
+    def find_by_name(name):
         return Domain.query.filter_by(name=name).first()
 

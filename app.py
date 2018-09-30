@@ -29,8 +29,8 @@ def create_tables():
 def hello_world():
     return send_from_directory('static', 'index.html')
 
-api.add_resource(DomainWithElements, '/domain')
 
+api.add_resource(DomainWithElements, '/domain')
 
 if __name__ == '__main__':
     add_static_to_angular_dist_files(OS_PATH_DIR_NAME)

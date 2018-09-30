@@ -9,7 +9,15 @@ class DomainWithElements(Resource):
                         required=True,
                         help="there must be domain name to rock this code")
 
-    def post(self):
+    @staticmethod
+    def post():
         data = DomainWithElements.parser.parse_args()
-        domain_to_save = Domain(data['domain'])
-        return domain_to_save.json()
+
+        domain = Domain.find_by_name(data['domain'])
+        if domain:
+            domain.increment_count()
+        else:
+            domain = Domain(data['domain'])
+
+        Domain.save_domain(domain)
+        return domain.json()
