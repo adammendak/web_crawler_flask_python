@@ -15,7 +15,7 @@ class DomainWithElements(Resource):
 
         domain = Domain.find_by_name(data['domain'])
         if domain:
-            domain.increment_count()
+            domain.update()
         else:
             domain = Domain(data['domain'])
 

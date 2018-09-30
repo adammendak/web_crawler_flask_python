@@ -20,8 +20,9 @@ class Domain(db.Model):
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-    def increment_count(self):
+    def update(self):
         self.count = self.count + 1
+        self.updated_at = datetime.now()
 
     def json(self):
         return {'id': self.id, 'name': self.name, 'count': self.count,
