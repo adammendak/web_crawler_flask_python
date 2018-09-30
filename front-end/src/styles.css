@@ -1,9 +1,3 @@
-body{
-  background-image: url('assets/92abc403.png');
-  background-position: center;
-  background-attachment: fixed;
-}
-
 .formAll{
   display: grid;
   justify-content: center;

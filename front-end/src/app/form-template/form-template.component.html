@@ -3,16 +3,36 @@
   <div class="form" style="display: inline-grid;">
     <label class="label" for="topic">Input URL</label>
 
-    <input placeholder="pase URL" class="form-control form-control-lg" type="text" id="topic" name="topic" required #url>
+    <input placeholder="" class="form-control form-control-lg" type="text" id="topic" name="topic" required #url>
 
     <button class="btn btn-primary" type="submit" (click)="addUrl(url.value)" url.value="" >Submit</button>
 
   </div>
   <ul class="result" class="list-group-item list-group-item-light">
-    <li>{{name}}</li>
-    <li>{{count}}</li>
-    <li>{{created_at}}</li>
-    <li>{{updated_at}}</li>
+    <li>nazwa domeny: {{name}}</li>
+    <li>ilosc scrapow: {{count}}</li>
+    <li>pierwszy: {{created_at}}</li>
+    <li>ostatni: {{updated_at}}</li>
+    <ul class="align-content-center"> <h3 class="text-center mb-3">Elementy strony:</h3>
+      <table class="table table-hover table-bordered">
+        <tr>
+          <th>type</th>
+          <th>text</th>
+          <th>img</th>
+        </tr>
+        <tr *ngFor="let element of listOfElements">
+          <td class="text-center">{{element.type}}</td>
+          <td class="text-center">{{element.text}}</td>
+          <td class="text-center">{{element.img_src}}</td>
+        </tr>
+      </table>
+      <!--<li *ngFor="let element of listOfElements">-->
+
+        <!--{{element.type}}-->
+        <!--{{element.text}}-->
+        <!--{{element.img_src}}-->
+      <!--</li>-->
+  </ul>
   </ul>
 </form>
 
