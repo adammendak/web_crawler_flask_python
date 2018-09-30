@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from model.domain import Domain
+from bs4 import BeautifulSoup
 
 
 class DomainWithElements(Resource):

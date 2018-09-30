@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory, jsonify
 from helpers.angular_dist_cleaner import add_static_to_angular_dist_files
 from flask_restful import Api
+from flask_cors import CORS
 from db import db
 from resources.domain_with_elements import DomainWithElements
 import os
@@ -12,7 +13,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 db.init_app(app)
+CORS(app)
 
+#  todo dodac beautiful soup na serwerze zainstalowac pipem
 #  todo we froncie dac content-type:application/json
 #  todo swaggera sprobowac dodac jak sie da
 #  todo dodac postgresa na razie na sqlite zrobic
@@ -34,5 +37,4 @@ api.add_resource(DomainWithElements, '/domain')
 
 if __name__ == '__main__':
     add_static_to_angular_dist_files(OS_PATH_DIR_NAME)
-    from db import db
     app.run()
