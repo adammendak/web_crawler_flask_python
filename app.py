@@ -13,8 +13,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 db.init_app(app)
-CORS(app)
+CORS(app)  # do developmentu z angulara
 
+#  todo dodac "http://python.beispiel.programmierenlernen.io/index.php" jako przykladowa strona do crawlowania
+#  todo podmienic na stronie requests
+#  todo dodac na stronie glownej informacje o tym zeby moja strone wyekstraktowac
+#  todo sprawdzic jak robic enumy pod single element type
+#  todo wczytywac db url ze zmiennch srodowiskowych
 #  todo wyczyscic komentarze z fronta
 #  todo dodac beautiful soup na serwerze zainstalowac pipem
 #  todo we froncie dac content-type:application/json

@@ -9,22 +9,21 @@ import {HttpService} from '../service/http.service';
 export class FormTemplateComponent {
   constructor(private myhttpService: HttpService) {}
 
-  addUrl(url) {
-    console.log(url);
+  count: String = '';
+  name: String = '';
+  created_at: String = '';
+  updated_at: String = '';
 
+  addUrl(url) {
     this.myhttpService.addUrl(url).subscribe(response => {
       console.log(response);
+      this.count = response.count;
+      this.name = response.name;
+      this.updated_at = response.updated_at;
+      this.created_at = response.created_at;
     });
   }
 
-  }
+}
 
-// const j: JSON = <JSON>({
-//   domain: 'text domain',
-//   paragrafy: 10,
-//   text: 'lorem'
-// });
-// this.myhttpServise.addPost(j).subscribe(json => {
-//   console.log(post);
-// });
 

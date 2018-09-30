@@ -8,6 +8,11 @@
     <button class="btn btn-primary" type="submit" (click)="addUrl(url.value)" url.value="" >Submit</button>
 
   </div>
-  <p class="result">result</p>
+  <ul class="result" class="list-group-item list-group-item-light">
+    <li>{{name}}</li>
+    <li>{{count}}</li>
+    <li>{{created_at}}</li>
+    <li>{{updated_at}}</li>
+  </ul>
 </form>
 

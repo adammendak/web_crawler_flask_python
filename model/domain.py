@@ -4,12 +4,13 @@ from datetime import datetime
 
 class Domain(db.Model):
     """
-    encja opisująca stronę internetową
+    encja domeny internetowej
     """
     __tablename__ = 'domain'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255))
+    """ tylko jeden wpis w bazie na dana domene"""
+    name = db.Column(db.String(255), unique=True)
     count = db.Column(db.Integer)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
@@ -25,7 +26,7 @@ class Domain(db.Model):
         self.updated_at = datetime.now()
 
     def json(self):
-        return {'id': self.id, 'name': self.name, 'count': self.count,
+        return {'name': self.name, 'count': self.count,
                 'created_at': str(self.created_at), 'updated_at': str(self.updated_at)}
 
     @staticmethod

@@ -117,14 +117,14 @@ var AppModule = (function () {
 /***/ "./src/app/form-template/form-template.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".label{\r\n  text-align: center;\r\n\r\n}\r\n\r\nh1{\r\n  font-size: 3rem;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  color: blue;\r\n  font-weight: bold;\r\n  padding: 15px;\r\n  margin-top: 10px;\r\n  margin-bottom: 100px;\r\n  border: 1px solid blue;\r\n  border-radius: 10px;\r\n  -webkit-transition: opacity 0.2s ease-out;\r\n  transition: opacity 0.2s ease-out;\r\n  text-shadow: -2px -1px 5px rgba(150, 150, 150, 1);\r\n}\r\n\r\nh1:hover {\r\n  opacity: 0.6;\r\n}\r\n\r\n.form{\r\n  font-size: 1.7rem;\r\n  color: blue;\r\n  font-weight: bold;\r\n}\r\n\r\n.result{\r\n  font-size: 1.7rem;\r\n  color: #2426AB;\r\n\r\n}\r\n\r\ninput{\r\n  margin-bottom: 20px;\r\n}\r\n\r\np{\r\n  text-align: center;\r\n}\r\n\r\n"
+module.exports = ".label{\r\n  text-align: center;\r\n\r\n}\r\n\r\nh1{\r\n  font-size: 3rem;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  color: blue;\r\n  font-weight: bold;\r\n  padding: 15px;\r\n  margin-bottom: 30px;\r\n  border: 1px solid blue;\r\n  border-radius: 10px;\r\n  -webkit-transition: color 0.5s ease-out;\r\n  transition: color 0.5s ease-out;\r\n  text-shadow: -2px -1px 5px rgba(150, 150, 150, 1);\r\n}\r\n\r\nh1:hover {\r\n  color: black;\r\n}\r\n\r\n.form{\r\n  font-size: 1.7rem;\r\n  color: blue;\r\n  font-weight: bold;\r\n}\r\n\r\n.result {\r\n  font-size: 1.7rem;\r\n  color: #2426AB;\r\n  text-align: center;\r\n\r\n}\r\n\r\ninput{\r\n  margin-bottom: 20px;\r\n}\r\n\r\nli{\r\n\r\n  list-style: none;\r\n  text-align: center;\r\n}\r\n\r\nul{\r\n  margin-top: 10px;\r\n}\r\n\r\n"
 
 /***/ }),
 
 /***/ "./src/app/form-template/form-template.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"formAll\">\n  <h1>web crawler</h1>\n  <div class=\"form\" style=\"display: inline-grid;\">\n    <label class=\"label\" for=\"topic\">Input URL</label>\n\n    <input placeholder=\"pase URL\" class=\"form-control form-control-lg\" type=\"text\" id=\"topic\" name=\"topic\" required #url>\n\n    <button class=\"btn btn-primary\" type=\"submit\" (click)=\"addUrl(url.value)\" url.value=\"\" >Submit</button>\n\n  </div>\n  <p class=\"result\">result</p>\n</form>\n\n"
+module.exports = "<form class=\"formAll\">\n  <h1>web crawler</h1>\n  <div class=\"form\" style=\"display: inline-grid;\">\n    <label class=\"label\" for=\"topic\">Input URL</label>\n\n    <input placeholder=\"pase URL\" class=\"form-control form-control-lg\" type=\"text\" id=\"topic\" name=\"topic\" required #url>\n\n    <button class=\"btn btn-primary\" type=\"submit\" (click)=\"addUrl(url.value)\" url.value=\"\" >Submit</button>\n\n  </div>\n  <ul class=\"result\" class=\"list-group-item list-group-item-light\">\n    <li>{{name}}</li>\n    <li>{{count}}</li>\n    <li>{{created_at}}</li>\n    <li>{{updated_at}}</li>\n  </ul>\n</form>\n\n"
 
 /***/ }),
 
@@ -149,11 +149,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var FormTemplateComponent = (function () {
     function FormTemplateComponent(myhttpService) {
         this.myhttpService = myhttpService;
+        this.count = '';
+        this.name = '';
+        this.created_at = '';
+        this.updated_at = '';
     }
     FormTemplateComponent.prototype.addUrl = function (url) {
-        console.log(url);
+        var _this = this;
         this.myhttpService.addUrl(url).subscribe(function (response) {
             console.log(response);
+            _this.count = response.count;
+            _this.name = response.name;
+            _this.updated_at = response.updated_at;
+            _this.created_at = response.created_at;
         });
     };
     FormTemplateComponent = __decorate([
@@ -167,14 +175,6 @@ var FormTemplateComponent = (function () {
     return FormTemplateComponent;
 }());
 
-// const j: JSON = <JSON>({
-//   domain: 'text domain',
-//   paragrafy: 10,
-//   text: 'lorem'
-// });
-// this.myhttpServise.addPost(j).subscribe(json => {
-//   console.log(post);
-// });
 
 
 /***/ }),

@@ -1,9 +1,12 @@
 from flask_restful import Resource, reqparse
 from model.domain import Domain
-from bs4 import BeautifulSoup
+from helpers.text_extractor import TextExtractor
 
 
 class DomainWithElements(Resource):
+    """
+    resource do przekazania do frontu
+    """
     parser = reqparse.RequestParser()
     parser.add_argument('domain',
                         type=str,
@@ -20,5 +23,7 @@ class DomainWithElements(Resource):
         else:
             domain = Domain(data['domain'])
 
+        TextExtractor.extract(data['domain'])
         Domain.save_domain(domain)
+
         return domain.json()

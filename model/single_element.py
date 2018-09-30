@@ -8,7 +8,7 @@ class SingleElement(db.Model):
     __tablename__ = 'single_element'
 
     id = db.Column(db.Integer, primary_key=True)
-    """ typ elementu -> 0 = text, 1 = obrazek"""
+    """ typ elementu -> 0 = text, 1 = obrazek, taki enum"""
     type = db.Column(db.Integer)
     text = db.Column(db.String)
     src = db.Column(db.String)
@@ -17,3 +17,14 @@ class SingleElement(db.Model):
         self.type = type
         self.text = text
         self.src = src
+
+    @staticmethod
+    def save_paragraphs(paragraphs):
+        paragraphs_to_save = []
+        # for p in paragraphs:
+        #
+        #     p.type = 0
+        #     p.
+        #
+        db.session.add(paragraphs_to_save)
+        db.session.commit()
