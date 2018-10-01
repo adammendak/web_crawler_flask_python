@@ -20,4 +20,3 @@ def add_static_to_angular_dist_files(dir_name):
 
 
 add_static_to_angular_dist_files(OS_PATH_DIR_NAME)
-
