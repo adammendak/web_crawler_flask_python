@@ -7,4 +7,4 @@ które usuwają stare pliki, budują nowy front-end i podmieniają w katalogu st
 
 # 2. reszta  
 <br>
-to be done 
+dziala na serwerze pod http://crawler.adammendak.pl/
