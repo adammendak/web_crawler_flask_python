@@ -31,6 +31,5 @@ def hello_world():
 
 api.add_resource(DomainWithElements, '/domain')
 
-
 if __name__ == '__main__':
     app.run()
