@@ -12,11 +12,6 @@ api = Api(app)
 db.init_app(app)
 CORS(app)  # do developmentu z angulara
 
-
-#  todo zmienic w single element na enuma
-#  todo swaggera sprobowac dodac
-#  todo dodac postgresa url na razie na sqlite
-
 @app.before_first_request
 def create_tables():
     db.create_all()
